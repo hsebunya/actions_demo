@@ -2,18 +2,16 @@
 name: ci 
 on:
   push:
-     branches: [develop]
+     branches: [master]
 jobs:
    test:
        runs-on: ubuntu-latest
        steps:
          - name: checkout
            uses: actions/checkout@v6
-         - name: Set up Node.js
-           uses: actions/setup-node@v2
+         - name: Set up node.js
+           uses: actions/setup-node@v6
            with:
-             node-version: '14'
-         - name: Install dependencies
-           run: npm install
-         - name: Run tests
-           run: npm test
+             node-version: '24'
+             cache: 'npm'
+         
